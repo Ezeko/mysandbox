@@ -1,40 +1,18 @@
 <?php
 
+use Controllers\WalletController;
+
+require_once( '../config.php');
     //check server method
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        include_once('./connect/connect.php'); // include connection script
-        
-        function check_input ( $input ) {
-            trim($input); //remove extra spaces
-            stripslashes( $input); //strip slashes
-            htmlspecialchars($input); // encode special characters
 
-            return $input;
-        }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        $user = check_input($_POST['username']);
+    $history = new WalletController;
+    
+    $details = $history->checkHistory();
         
 
-
-        //check database
-        $sql = "SELECT * FROM `users` WHERE username = '$user' ";
-        $query = mysqli_query( $connected, $sql) or die(mysqli_error($connected));
-        $queryArray = mysqli_fetch_array($query);
-
-        if ( count($queryArray) > 0 ) { 
-            $sql = "SELECT * FROM `wallet_history` WHERE `username` = '$user'";
-            $query = mysqli_query($connected, $sql) or die(mysqli_error($connected)); // query
-            $check =  mysqli_num_rows($query);
-            $history = [];
-            while ( $check = mysqli_fetch_assoc($query)){
-                array_push($history, $check);
-            }
-            
-        } else {
-            echo "<script> alert('$user is not registered'); window.location.replace('wallet_history.php'); </script>";
-        }
-        
-    }
+}
 ?>
 
 <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -90,10 +68,10 @@
         </thead>
         <tbody>
             <?php
-              if (isset($history)){
+              if (isset($details)){
                   $count = 0;
 
-                  foreach ( $history as $history){
+                  foreach ( $details as $history){
                     echo ("
                     <tr>
                     <td>". ++$count . "</td>
@@ -106,7 +84,7 @@
                 
                     ");
 
-                    $check--;
+                    
                   }
               }
             ?>         
