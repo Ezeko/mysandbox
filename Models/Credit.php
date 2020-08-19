@@ -1,8 +1,11 @@
 <?php
-require_once ("../Models/Database.php");
-class Credit extends Database {
+namespace Models;
+
+class Credit{
 
  public function connectToDB(){
-    $this->__construct("localhost", "root", "", "wallet-funding");
+    new Database("localhost", "root", "", "wallet-funding");
+    
  }
+
 }

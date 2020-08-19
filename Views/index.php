@@ -1,6 +1,11 @@
 <?php
-require_once ("../Models/Credit.php");
 
- //$db = new Credit();
+use Models\Credit;
+
+require ('../config.php');
+
+$db = new Credit;
+$db->connectToDB('localhost', 'root', '', 'wallet-funding');
+
  
 ?>

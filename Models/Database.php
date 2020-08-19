@@ -1,5 +1,5 @@
 <?php
-
+namespace Models;
 class Database {
 
     private $db_host,
@@ -20,9 +20,9 @@ class Database {
             if ( !$connect ) {
                 return "Error not connected";
             } else {
-                return "connected to database {$db_name} successfully";
+                echo "connected to database {$db_name} successfully";
             }
-        } catch ( Exception $e) {
+        } catch ( \Exception $e) {
             return "Error!". $e->getMessage();
         }
         
