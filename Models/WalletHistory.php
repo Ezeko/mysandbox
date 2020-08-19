@@ -2,7 +2,7 @@
 namespace Models;
 
 
-class User{
+class WalletHistory{
 public $conn;
  public function connectToDB(){
    $db = new Database("localhost", "root", "", "wallet-funding");
@@ -11,12 +11,12 @@ public $conn;
  }
 
   /**
-  * Gets all users details from database
+  * Gets all users history from wallet
   * @param void
   * @return $result
   */
  public function all(){
-    $sql = "SELECT * FROM `users` WHERE 1";
+    $sql = "SELECT * FROM `wallet_history` WHERE 1";
     $conn = $this->connectToDB();
     
     $query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
@@ -35,14 +35,14 @@ public $conn;
  }
 
  /**
-  * Gets user details from database
+  * Gets user history from wallet
   * @param array $where
   * @return $result
   */
  public function get(array $where) {
    $conn = $this->connectToDB();
    
-   $sql = "SELECT * from `users` WHERE `$where[0]` $where[1] '$where[2]'"; ;
+   $sql = "SELECT * from `wallet_history` WHERE `$where[0]` $where[1] '$where[2]'"; ;
 
    $query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
@@ -60,14 +60,15 @@ public $conn;
  }
 
   /**
-  * Create a new user detail into the database
+  * Create a new user wallet history into the database
   * @param array $input
   * @return true
   */
-  public function create (string $username, string $email) {
+  public function create (string $username, int $amount, string $description, int $balance) {
      $conn = $this->connectToDB();
 
-     $sql = "INSERT INTO `users` (username, email) VALUES ('$username', '$email')";
+     $sql = "INSERT INTO `wallet_history` (username, amount, description, balance) 
+     VALUES ('$username', $amount, $description, $balance)";
      $query = mysqli_query($conn, $sql);
      if ($query){
         return true;
@@ -78,14 +79,14 @@ public $conn;
   }
 
     /**
-  * Create a new user detail into the database
+  * Update a  user wallet history detail in the database
   * @param array $input
   * @return true
   */
   public function update(array $details, array $whereClause) {
      $conn = $this->connectToDB();
 
-     $sql = "UPDATE `users` SET `$details[0]` $details[1] $details[2]
+     $sql = "UPDATE `wallet_history` SET `$details[0]` $details[1] $details[2]
      WHERE `$whereClause[0]` $whereClause[1] '$whereClause[2]' ";
 
      $query = mysqli_query($conn, $sql);
@@ -100,14 +101,14 @@ public $conn;
   }
 
   /**
-   * Deletes a User detail from database
+   * Deletes a User history from wallet_history
    * @param $whereClause
    * @return true
    */
   public function delete (array $whereClause) {
      $conn = $this->connectToDB();
 
-     $sql = "DELETE FROM `users` WHERE $whereClause[0] $whereClause[1] '$whereClause[2]'";
+     $sql = "DELETE FROM `wallet_history` WHERE $whereClause[0] $whereClause[1] '$whereClause[2]'";
 
      $query = mysqli_query($conn, $sql);
 

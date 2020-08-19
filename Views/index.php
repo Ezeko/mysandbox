@@ -8,7 +8,7 @@ $db = new User;
 
 //print_r($db->create("ella", "ella@email.com"));
 
-$db->update(["amount", "=", 200], ["username", "=", "ezeko"]);
+$db->delete(["username", "=", "ella"]);
 
 print_r ($db->all());
 
