@@ -68,7 +68,7 @@ public $conn;
      $conn = $this->connectToDB();
 
      $sql = "INSERT INTO `wallet_history` (username, amount, description, balance) 
-     VALUES ('$username', $amount, $description, $balance)";
+     VALUES ('$username', $amount, '$description', $balance)";
      $query = mysqli_query($conn, $sql);
      if ($query){
         return true;

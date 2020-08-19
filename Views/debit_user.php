@@ -1,13 +1,10 @@
 <?php
 
-use Controllers\CreditController;
-
-require_once ('../config.php');
+use Controllers\DebitController;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){ //check method of sending request
-        
-    new CreditController;
-        
+        require_once('../config.php');
+        new DebitController;
     }
 ?>
 
@@ -15,20 +12,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ //check method of sending request
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="css/credit.css">
-<title> Credit User</title>
+<title> Debit User </title>
 
 
 <div class="container">
 	<div class="row">
-        <h2>Credit User!</h2>
+        <h2>Debit User!</h2>
         <div class="col-md-3">
-        <a href="debit_user.php"> Debit Users Here </a>
-    </div>
-    <div class="col-md-6">
+            <a href="credit_user.php"> Credit Users Here </a>
+        </div>
+        <div class="col-md-6">
             <a href="wallet_history.php"> Check Wallet history Here </a>
         </div>
-</div>
-
+    </div>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" >
     <div class="row form-group">
         <div> 
@@ -51,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ //check method of sending request
         </div>
     </div>
     <div>
-        <input type="submit" value="Credit" class="btn-success form-control" >
+        <input type="submit" value="Debit" class="btn-info form-control" >
     </div>
     </form>
 </div>
