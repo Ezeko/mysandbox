@@ -23,7 +23,7 @@ class WalletController {
             
             return $details;
         } else {
-            echo "<script> alert('$user is not registered'); window.location.replace('wallet_history.php'); </script>";
+            echo "<script> alert('$user is not registered'); window.location.replace('history'); </script>";
         }
     }
 }

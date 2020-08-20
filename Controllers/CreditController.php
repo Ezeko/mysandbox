@@ -34,15 +34,15 @@ class CreditController {
                 $wallet = new WalletHistory;
                 $add = $wallet->create($detail[0]['username'], $amount, "₦$amount credited by ADMIN", $newAmount );
                 
-                echo "<script> alert('₦$amount has been added to $username\'s wallet '); window.location.replace('credit_user.php');</script>";
+                echo "<script> alert('₦$amount has been added to $username\'s wallet '); window.location.replace('credit');</script>";
             } else {
-                echo "<script> alert('$username wallet cannot be funded at the moment!!!'); window.location.replace('credit_user.php'); </script>";
+                echo "<script> alert('$username wallet cannot be funded at the moment!!!'); window.location.replace('credit'); </script>";
             }
 
             
 
         } else {
-            echo "<script> alert('$username is not registered'); window.location.replace('credit_user.php'); </script>";
+            echo "<script> alert('$username is not registered'); window.location.replace('credit'); </script>";
         } 
     }
 }

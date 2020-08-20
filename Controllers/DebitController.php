@@ -37,15 +37,15 @@ class DebitController {
                 $wallet = new WalletHistory;
                 $remove = $wallet->create($detail[0]['username'], $amount, "₦$amount debitted by ADMIN", $newAmount );
                 
-                echo "<script> alert('₦$amount has been removed from $username\'s wallet '); window.location.replace('debit_user.php');</script>";
+                echo "<script> alert('₦$amount has been removed from $username\'s wallet '); window.location.replace('debit');</script>";
             } else {
-                echo "<script> alert('$username wallet cannot be funded at the moment!!!'); window.location.replace('debit_user.php'); </script>";
+                echo "<script> alert('$username wallet cannot be funded at the moment!!!'); window.location.replace('debit'); </script>";
             }
 
             
 
         } else {
-            echo "<script> alert('$username is not registered'); window.location.replace('debit_user.php'); </script>";
+            echo "<script> alert('$username is not registered'); window.location.replace('debit'); </script>";
         } 
     }
 }

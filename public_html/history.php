@@ -30,10 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<div class="row">
         <h2>Wallet History</h2>
         <div class="col-md-3">
-            <a href="credit_user.php"> Credit Users Here </a>
+            <a href="credit"> Credit Users Here </a>
         </div>
         <div class="col-md-6">
-            <a href="debit_user.php"> Debit Users Here </a>
+            <a href="debit"> Debit Users Here </a>
         </div>
     </div>
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" >
