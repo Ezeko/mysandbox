@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="input-group">
             <span class="input-group-addon info"><span class="glyphicon glyphicon-info-sign"></span></span>
             <input type="text" class="form-control" name="username"
-            placeholder="username" required>
+            placeholder="username" >
         </div>
     </div>
     <div>

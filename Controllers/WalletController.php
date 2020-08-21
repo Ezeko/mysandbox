@@ -11,7 +11,17 @@ class WalletController {
 
         $user = $validate->checkInput($_POST['username']);
         
-
+        $validated = ($validate->validate(['username' => array('required' => true, 'min' => 2 )]));
+        
+        if ($validated === true)
+        {
+            echo "validated";
+        } else {
+           foreach ($validated as $error){
+               echo $error . "</br>";
+           }
+        }
+        exit;
         //check database
         $check = new User();
         $userDetail = $check->get(["username", "=", $user]);
