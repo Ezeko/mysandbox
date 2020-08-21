@@ -1,13 +1,13 @@
 <?php
 namespace Controllers;
 
-use Controllers\Validate;
+use Controllers\Validation;
 use Models\User;
 use Models\WalletHistory;
 
 class WalletController {
     public function checkHistory (){
-        $validate = new Validate;
+        $validate = new Validation;
 
         $user = $validate->checkInput($_POST['username']);
         
@@ -15,14 +15,7 @@ class WalletController {
         
         if ($validated === true)
         {
-            echo "validated";
-        } else {
-           foreach ($validated as $error){
-               echo $error . "</br>";
-           }
-        }
-        exit;
-        //check database
+             //check database
         $check = new User();
         $userDetail = $check->get(["username", "=", $user]);
 
@@ -35,5 +28,12 @@ class WalletController {
         } else {
             echo "<script> alert('$user is not registered'); window.location.replace('history'); </script>";
         }
+        } else {
+           foreach ($validated as $error){
+               echo $error . "</br>";
+           }
+        }
+        
+       
     }
 }

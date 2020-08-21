@@ -1,7 +1,7 @@
 <?php
 namespace Controllers;
 
-class Validate {
+class Validation {
     private $_errors = [];
     public function checkInput ( $input ) {
         trim($input); //remove extra spaces
@@ -35,7 +35,7 @@ class Validate {
                         array_push($this->_errors, "{$input}'s length cannot be greater than {$rule_value}");
                     }
                     break;
-                    case 'min': if (strlen($_POST[$input] < $rule_value)) {
+                    case 'min': if (strlen($_POST[$input]) < $rule_value) {
                         array_push($this->_errors, "{$input}'s length cannot be lesser than {$rule_value}");
                     }
                     break;

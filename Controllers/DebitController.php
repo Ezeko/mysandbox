@@ -1,13 +1,13 @@
 <?php
 namespace Controllers;
 
-use Controllers\Validate;
+use Controllers\Validation;
 use Models\User;
 use Models\WalletHistory;
 class DebitController {
     public function __construct()
     {
-        $check = new Validate;
+        $check = new Validation;
         $data = $_POST['amount'];
         $amount = $check->checkInput($data);
         $username = $check->checkInput($_POST['username']);
