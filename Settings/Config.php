@@ -1,6 +1,6 @@
 <?php
 
-namespace Models;
+namespace Settings;
  
 class Config {
     public static function get(string $config_name) {

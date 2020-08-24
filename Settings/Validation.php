@@ -1,5 +1,5 @@
 <?php
-namespace Controllers;
+namespace Settings;
 
 class Validation {
     private $_errors = [];

@@ -1,6 +1,7 @@
 <?php
 namespace Models;
 
+use Settings\Database;
 
 class WalletHistory{
 public $conn;

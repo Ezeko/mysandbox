@@ -1,11 +1,11 @@
 <?php
 namespace Models;
-
+use Settings\Database;
 
 class User{
 public $conn;
  public function connectToDB(){
-   $db = new Database("localhost", "root", "", "wallet-funding");
+   $db = new Database();
    return $db->connect();
    
  }

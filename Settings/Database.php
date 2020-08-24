@@ -1,5 +1,5 @@
 <?php
-namespace Models;
+namespace Settings;
 class Database {
 
     private $db_host,

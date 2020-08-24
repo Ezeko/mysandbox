@@ -1,7 +1,7 @@
 <?php
 
-use Controllers\Redirect;
-use Controllers\Session;
+use Settings\Redirect;
+use Settings\Session;
 use Models\Config;
 use Models\Database;
 use Models\User;

@@ -1,7 +1,7 @@
 <?php
 namespace Controllers;
 
-use Controllers\Validation;
+use Settings\Validation;
 use Models\User;
 use Models\WalletHistory;
 
