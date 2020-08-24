@@ -8,6 +8,7 @@ use Models\User;
 
 require ('../config.php');
 $session = new Session;
+var_dump($session::delete('user'));
 $session::set('id', 4);
 echo $session::get('id'); exit;
 $red = new Redirect;
