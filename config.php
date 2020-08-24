@@ -1,5 +1,11 @@
 <?php
-
+session_start();
+ $GLOBALS['config'] = [
+     'db_name' => 'wallet-funding',
+     'db_host' => 'localhost',
+     'db_password' => '',
+     'db_user' => 'root'
+ ];
 //autoload classes
 spl_autoload_register('LoadClass');
 function LoadClass ($class) {

@@ -4,6 +4,7 @@ use Controllers\CreditController;
 
 require_once ('../config.php');
 
+//echo "{$config['db_host']}"; exit;
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){ //check method of sending request
         
     new CreditController;

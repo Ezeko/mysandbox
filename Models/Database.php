@@ -7,12 +7,13 @@ class Database {
     $db_pwd,
     $db_name;
 
-    public function __construct( $host, $db_user, $db_pwd, $db_name)
+    public function __construct( $host, $db_user, $db_pwd, $db_name )
     {
         $this->db_user = $db_user;
         $this->db_host = $host;
         $this->db_pwd = $db_pwd ;
         $this->db_name = $db_name;
+        
     }
 
     public function connect ( )

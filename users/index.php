@@ -1,10 +1,16 @@
 <?php
 
+use Models\Config;
 use Models\User;
 
 require ('../config.php');
 
-$db = new User;
+//$db = new User;
+$con = new Config;
+
+echo $con::get('db_name'), "</br>";
+echo $con::set(['db_name' => 'ezeko']);
+echo $con::get('db_name');
 /*
 //print_r($db->create("ella", "ella@email.com"));
 
@@ -17,7 +23,7 @@ echo $user[0]['amount'];
  foreach ($user as $u){
      echo $u['email'];
  }*/
-
+/*
  $curl = curl_init();
   
  curl_setopt_array($curl, array(
@@ -100,4 +106,4 @@ return;
  } else {
    echo $response;
  }
-?>
+*/
