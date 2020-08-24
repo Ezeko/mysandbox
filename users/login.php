@@ -51,7 +51,7 @@ if (($_SERVER['REQUEST_METHOD']) === "POST") {
 	<button type="submit" class="btn btn-primary btn-block"> Login  </button>
 	</div> <!-- form-group// -->
     <p class="text-center"><a href="#" class="btn">Forgot password?</a></p>
-    <p class="text-center"><a href="#" class="btn">Sign Up Here</a></p>
+    <p class="text-center"><a href="register" class="btn">Sign Up Here</a></p>
 	</form>
 </article>
 </div> <!-- card.// -->
