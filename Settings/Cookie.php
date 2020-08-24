@@ -8,9 +8,9 @@ class Cookie {
      * @param cookie, $cookie_value
      * @return true
      */
-    public static function set (string $cookie, $cookie_value)
+    public static function set (string $cookie, $cookie_value, $expiry)
     {
-        $created = setcookie($cookie, $cookie_value, time() + (86400 * 30), '/');
+        $created = setcookie($cookie, $cookie_value, time() + $expiry, '/');
         if ($created){
             return true;
         }
@@ -54,7 +54,9 @@ class Cookie {
         $check = self::exists($cookie_name);
 
         if ($check){
-            $deleted = setcookie($cookie_name, "" , time() - 3600);
+
+            $deleted = self::set($cookie_name, "", time() - 3600);
+            //setcookie($cookie_name, "" , time() - 3600);
             if ($deleted) {
                 return true;
             }

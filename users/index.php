@@ -8,11 +8,12 @@ use Models\User;
 use Settings\Cookie;
 
 require ('../config.php');
+var_dump(hash('sha256', uniqid()));
 $cookie = new Cookie;
-//var_dump($cookie::exists("name"));
+var_dump($cookie::delete("name"));
 $session = new Session;
 $session::destroy();
-//$session::set('id', 4);
+$session::set('id', 4);
 echo $session::get('id'); exit;
 $red = new Redirect;
 Redirect::To('credit'); exit;
