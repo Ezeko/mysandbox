@@ -1,13 +1,17 @@
 <?php
 
 use Controllers\Redirect;
+use Controllers\Session;
 use Models\Config;
 use Models\Database;
 use Models\User;
 
 require ('../config.php');
+$session = new Session;
+$session::set('id', 4);
+echo $session::get('id'); exit;
 $red = new Redirect;
-($red::To('credit')); exit;
+Redirect::To('credit'); exit;
 $db = new Database;
 //var_dump($db->connect());
 //$db = new User;
