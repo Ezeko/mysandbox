@@ -5,7 +5,7 @@ namespace Models;
 class WalletHistory{
 public $conn;
  protected function connectToDB(){
-   $db = new Database("localhost", "root", "", "wallet-funding");
+   $db = new Database;
    return $db->connect();
    
  }

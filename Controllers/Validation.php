@@ -4,11 +4,16 @@ namespace Controllers;
 class Validation {
     private $_errors = [];
     public function checkInput ( $input ) {
-        trim($input); //remove extra spaces
-        stripslashes( $input); //strip slashes
-        htmlspecialchars($input); // encode special characters
+        $trim = trim($input); //remove extra spaces
+        $strip = stripslashes( $trim); //strip slashes
+        return ($data = htmlspecialchars($strip)); // encode special characters
 
-        return $input;
+        return $data;
+    }
+
+    public static function sanitize ( $data ){
+        $sanitized = htmlentities($data, ENT_QUOTES, 'UTF-8', true );
+        return $sanitized;
     }
 
     public function validate ( array $inputs ) {

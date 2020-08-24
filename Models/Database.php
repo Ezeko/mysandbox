@@ -7,12 +7,14 @@ class Database {
     $db_pwd,
     $db_name;
 
-    public function __construct( $host, $db_user, $db_pwd, $db_name )
+    public function __construct( )
     {
-        $this->db_user = $db_user;
-        $this->db_host = $host;
-        $this->db_pwd = $db_pwd ;
-        $this->db_name = $db_name;
+        $config = new Config;
+
+        $this->db_user = $config::get('db_user');
+        $this->db_host = $config::get('db_host');
+        $this->db_pwd = $config::get('db_password');
+        $this->db_name = $config::get('db_name');
         
     }
 

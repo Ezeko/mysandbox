@@ -1,10 +1,15 @@
 <?php
 
+use Controllers\Redirect;
 use Models\Config;
+use Models\Database;
 use Models\User;
 
 require ('../config.php');
-
+$red = new Redirect;
+($red::To('credit')); exit;
+$db = new Database;
+//var_dump($db->connect());
 //$db = new User;
 $con = new Config;
 
