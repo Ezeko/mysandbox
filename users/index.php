@@ -8,6 +8,7 @@ use Models\User;
 use Settings\Cookie;
 
 require ('../config.php');
+echo password_verify('password', '$2y$10$ojv2OPXAOi9.0.e9xtVIsOlv3rxfkNLToCwTWCWJP0Q5O/nckusTy'); exit;
 var_dump(hash('sha256', uniqid()));
 $cookie = new Cookie;
 var_dump($cookie::delete("name"));

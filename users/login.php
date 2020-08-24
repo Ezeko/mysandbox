@@ -1,3 +1,14 @@
+<?php
+
+use Controllers\UserController;
+
+require_once("../config.php");
+
+if (($_SERVER['REQUEST_METHOD']) === "POST") {
+    $cont = new UserController;
+    $messages = $cont->login();
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,13 +28,15 @@
 	<hr>
 	<p class="text-success text-center"><?php if(isset($messages)){
         echo $messages;} echo ''; ?></p>
-	<form>
+	<form method="POST" action="">
 	<div class="form-group">
 	<div class="input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-		<input name="user" class="form-control" placeholder="Email or Username" type="email">
+        <input name="user" class="form-control" value="<?php
+        
+        if (isset($_POST['user'])){ echo $_POST['user']; } ''; ?>" placeholder="Email or Username" type="text" required>
 	</div> <!-- input-group.// -->
 	</div> <!-- form-group// -->
 	<div class="form-group">
@@ -31,7 +44,7 @@
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		 </div>
-	    <input name="password" class="form-control" placeholder="******" type="password">
+	    <input name="password" class="form-control" placeholder="******" type="password" required>
 	</div> <!-- input-group.// -->
 	</div> <!-- form-group// -->
 	<div class="form-group">

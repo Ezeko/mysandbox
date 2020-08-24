@@ -42,7 +42,7 @@ public $conn;
  public function get(array $where) {
    $conn = $this->connectToDB();
    
-   $sql = "SELECT * from `users` WHERE `$where[0]` $where[1] '$where[2]'"; ;
+   $sql = "SELECT * from `users` WHERE $where[0] $where[1] '$where[2]'"; ;
 
    $query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
@@ -64,10 +64,10 @@ public $conn;
   * @param array $input
   * @return true
   */
-  public function create (string $username, string $email) {
+  public function create (string $username, string $email, string $password) {
      $conn = $this->connectToDB();
 
-     $sql = "INSERT INTO `users` (username, email) VALUES ('$username', '$email')";
+     $sql = "INSERT INTO `users` (username, email, password) VALUES ('$username', '$email', '$password')";
      $query = mysqli_query($conn, $sql);
      if ($query){
         return true;
