@@ -21,7 +21,8 @@ class Session {
      */
     public static function get(string $name)
     {
-        if (isset($_SESSION[$name])){
+        $exists = self::exists($name);
+        if ($exists){
             return $_SESSION[$name];
         } 
 
@@ -39,7 +40,6 @@ class Session {
         if (isset($_SESSION[$session_name])){
             return true;
         }
-        Echo "$session_name does not exist </br>";
         return false;
     }
 
@@ -54,10 +54,26 @@ class Session {
 
         if ($checked) {
             unset($_SESSION[$session_name]);
-
             return true;
         }
         
+        return false;
+    }
+
+    /**
+     * Destroy session
+     * @param $session_name
+     * @return true
+     */
+
+    public static function destroy()
+    {
+
+        $destroyed = session_destroy();
+
+        if ($destroyed) {
+            return true;
+        }
         return false;
     }
 

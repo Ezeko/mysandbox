@@ -5,11 +5,14 @@ use Settings\Session;
 use Models\Config;
 use Models\Database;
 use Models\User;
+use Settings\Cookie;
 
 require ('../config.php');
+$cookie = new Cookie;
+//var_dump($cookie::exists("name"));
 $session = new Session;
-var_dump($session::delete('user'));
-$session::set('id', 4);
+$session::destroy();
+//$session::set('id', 4);
 echo $session::get('id'); exit;
 $red = new Redirect;
 Redirect::To('credit'); exit;
