@@ -1,12 +1,13 @@
 <?php
 
 use Controllers\UserController;
+use Settings\Token;
 
 require_once("../config.php");
 
 if (($_SERVER['REQUEST_METHOD']) === "POST") {
     $cont = new UserController;
-    $messages = $cont->login();
+	$messages = $cont->login();
 }
 ?>
 <!DOCTYPE html>
@@ -29,6 +30,7 @@ if (($_SERVER['REQUEST_METHOD']) === "POST") {
 	<p class="text-danger text-center"><?php if(isset($messages)){
         echo $messages;} echo ''; ?></p>
 	<form method="POST" action="">
+		<input type="hidden" name="token" value="<?php echo Token::generate(); ?>" required>
 	<div class="form-group">
 	<div class="input-group">
 		<div class="input-group-prepend">

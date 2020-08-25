@@ -77,4 +77,20 @@ class Session {
         return false;
     }
 
+    /**
+     * Flashes message to users
+     * @param $name, $flash_value
+     * 
+     */
+    public static function flash($name, string $flash_value = ''){
+		if(self::exists($name)){
+			$session = self::get($name);
+			self::delete($name);
+			return $session;
+		}else{
+			self::set($name, $flash_value);
+		}
+		//return = '';
+	}
+
 }

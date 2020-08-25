@@ -6,8 +6,11 @@ use Settings\Config;
 use Settings\Database;
 use Models\User;
 use Settings\Cookie;
+use Settings\Token;
 
 require ('../config.php');
+
+echo Token::check("6bc59ab3a0d47020ff9de3aa3e925bf4"); exit;
 echo password_verify('password', '$2y$10$ojv2OPXAOi9.0.e9xtVIsOlv3rxfkNLToCwTWCWJP0Q5O/nckusTy'); exit;
 var_dump(hash('sha256', uniqid()));
 $cookie = new Cookie;

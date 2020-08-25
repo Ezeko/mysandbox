@@ -1,12 +1,14 @@
 <?php
 
 use Controllers\UserController;
+use Settings\Token;
 
 require_once("../config.php");
 
 if (($_SERVER['REQUEST_METHOD']) === "POST") {
     $cont = new UserController;
     $messages = $cont->signup();
+
 }
 ?>
 <!DOCTYPE html>
@@ -19,6 +21,7 @@ if (($_SERVER['REQUEST_METHOD']) === "POST") {
     </head>
 <body style="margin-left: 30em; margin-top: 4em; margin-right: 22em">
 <form class="form-horizontal" action='' method="POST">
+<input type="hidden" name="token" value="<?php echo Token::generate(); ?>" required>
   <fieldset>
     <div id="legend">
       <legend class="text-center">Register</legend>
