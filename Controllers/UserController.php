@@ -100,11 +100,14 @@ class UserController {
                     //continue
                     $user = new User;
                     $saved = $user->create($username, $email, $password);
-                    if (!$saved) {
+                    if ($saved !== true) {
                         echo "<script> alert('Something occured! could not save user\'s details'); </script>";
+                    }else {
+                         
+                        echo "<script> alert('$username registered successfully'); window.location.replace('login');</script>";
+                        
                     }
-                    echo '<script> alert("user registered successfully"); window.location.replace("login");';
-                    Redirect::To('login');
+                   
                 }else{
                     if ($check_mail !== true ){
                         echo "<script> alert('Email details must be filled.'); </script>";
