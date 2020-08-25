@@ -8,9 +8,9 @@ class Hash {
      * @param $data
      * @return $hashed
      */
-    public static function make(string $data, $salt = '')
+    public static function make(string $data)
     {
-        $hashed = hash('sha256', $data - $salt);
+        $hashed = hash('sha256', $data);
 
         return $hashed;
     }
@@ -25,4 +25,9 @@ class Hash {
 
         return $hashed;
     }
+
+    public static function salt($length){
+		return md5(random_bytes($length));
+		//return mcrypt_create_iv($length);
+	}
 }

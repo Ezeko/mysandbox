@@ -14,6 +14,7 @@ if (($_SERVER['REQUEST_METHOD']) === "POST") {
 <!DOCTYPE html>
 <html>
     <head>
+    <title>Users :: Register</title>
         <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -40,7 +41,7 @@ if (($_SERVER['REQUEST_METHOD']) === "POST") {
       <!-- E-mail -->
       <label class="control-label" for="email">E-mail</label>
       <div class="controls">
-        <input type="text" id="email" name="email" placeholder="Please provide your E-mail"
+        <input type="email" id="email" name="email" placeholder="Please provide your E-mail"
         class="input-xlarge" value="<?php if (isset($_POST['email'])){ echo $_POST['email']; } ''; ?>" required>
       </div>
     </div>

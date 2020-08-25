@@ -3,6 +3,9 @@
 namespace Controllers;
 
 use Models\User;
+use Models\UserSession;
+use Settings\Cookie;
+use Settings\Hash;
 use Settings\Redirect;
 use Settings\Session;
 use Settings\Token;
@@ -21,6 +24,11 @@ class UserController {
         $username = $validated->checkInput($_POST['user']);
         $password = $validated->checkInput($_POST['password']);
         $token = $validated->checkInput($_POST['token']);
+        $remember = "";
+
+        if (isset($_POST['remember'])){
+            $remember = $_POST['remember'];
+        }
         //backend check
 
         $check_user = $validated->validate((['user' => array('required' => true, 'min' => 4 )]));
@@ -38,7 +46,20 @@ class UserController {
                     $verify_password = password_verify($password, $userDetail[0]['password']);
                     if ($verify_password){
                         Session::set('username', $userDetail[0]['username']);
-                        
+                        if ($remember === 'on'){
+                            //create hash
+                            $hash = Hash::unique();
+                            //create cookie
+                            Cookie::set('hash', $hash, 86400);
+                            
+                            // insert into db
+                            $user_sess = new UserSession;
+                            $get_user_sess = $user_sess->get(['hash', '=', Cookie::get('hash')]);
+                            if (count($get_user_sess) < 1) {
+                                $user_sess->create($userDetail[0]['id'], $hash);
+                            }
+
+                        }
                         Redirect::To('dashboard');
                     }
                     else{
@@ -82,7 +103,7 @@ class UserController {
                     if (!$saved) {
                         echo "<script> alert('Something occured! could not save user\'s details'); </script>";
                     }
-                    echo 'user registered successfully';
+                    echo '<script> alert("user registered successfully"); window.location.replace("login");';
                     Redirect::To('login');
                 }else{
                     if ($check_mail !== true ){
