@@ -1,3 +1,14 @@
+<?php
+
+use Controllers\UserController;
+
+require_once("../config.php");
+
+if (($_SERVER['REQUEST_METHOD']) === "POST") {
+    $cont = new UserController;
+    $messages = $cont->signup();
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +27,8 @@
       <!-- Username -->
       <label class="control-label"  for="username">Username</label>
       <div class="controls">
-        <input type="text" id="username" name="username" placeholder="Username here" class="input-xlarge" required>
+        <input type="text" id="username" name="username" placeholder="Username here"
+        value="<?php if (isset($_POST['username'])){ echo $_POST['username']; } ''; ?>" class="input-xlarge" required>
         
       </div>
     </div>
@@ -25,7 +37,8 @@
       <!-- E-mail -->
       <label class="control-label" for="email">E-mail</label>
       <div class="controls">
-        <input type="text" id="email" name="email" placeholder="Please provide your E-mail" class="input-xlarge" required>
+        <input type="text" id="email" name="email" placeholder="Please provide your E-mail"
+        class="input-xlarge" value="<?php if (isset($_POST['email'])){ echo $_POST['email']; } ''; ?>" required>
       </div>
     </div>
  
@@ -33,7 +46,8 @@
       <!-- Password-->
       <label class="control-label" for="password">Password</label>
       <div class="controls">
-        <input type="password" id="password" name="password" placeholder="Password should be at least 4 characters" class="input-xlarge" required>
+        <input type="password" id="password" name="password"
+        placeholder="Password should be at least 4 characters" class="input-xlarge" required>
         
       </div>
     </div>

@@ -35,8 +35,8 @@ if (($_SERVER['REQUEST_METHOD']) === "POST") {
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
         <input name="user" class="form-control" value="<?php
-        
-        if (isset($_POST['user'])){ echo $_POST['user']; } ''; ?>" placeholder="Email or Username" type="text" required>
+		if (isset($_POST['user'])){ echo $_POST['user']; } ''; ?>"
+		placeholder="Email or Username" type="text" required>
 	</div> <!-- input-group.// -->
 	</div> <!-- form-group// -->
 	<div class="form-group">

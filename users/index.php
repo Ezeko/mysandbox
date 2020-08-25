@@ -2,8 +2,8 @@
 
 use Settings\Redirect;
 use Settings\Session;
-use Models\Config;
-use Models\Database;
+use Settings\Config;
+use Settings\Database;
 use Models\User;
 use Settings\Cookie;
 
