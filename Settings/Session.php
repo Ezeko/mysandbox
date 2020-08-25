@@ -26,7 +26,7 @@ class Session {
             return $_SESSION[$name];
         } 
 
-        return ("Error, $name not saved in session");
+        return ("");
 
     }
 

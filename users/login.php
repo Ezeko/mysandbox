@@ -26,7 +26,7 @@ if (($_SERVER['REQUEST_METHOD']) === "POST") {
 <article class="card-body">
 	<h4 class="card-title text-center mb-4 mt-1">Sign in</h4>
 	<hr>
-	<p class="text-success text-center"><?php if(isset($messages)){
+	<p class="text-danger text-center"><?php if(isset($messages)){
         echo $messages;} echo ''; ?></p>
 	<form method="POST" action="">
 	<div class="form-group">

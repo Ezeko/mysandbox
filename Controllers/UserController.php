@@ -30,19 +30,24 @@ class UserController {
             $userDetail = $check->get(["username = '$username'", "OR email =", $username]);
             
 
-            if (count($userDetail > 0) ) {
+            if (count($userDetail) > 0 ) {
                 $verify_password = password_verify($password, $userDetail[0]['password']);
                 if ($verify_password){
-                    Session::set('id', $userDetail[0]['id']);
+                    Session::set('username', $userDetail[0]['username']);
+                    
                     Redirect::To('dashboard');
                 }
                 else{
                     $messages = "Password incorrect";
                     return $messages;
                 }
+            } else {
+                $messages = "Invalid User Details";
+                return $messages;
             }
-        }else{
+        } else{
             $messages = "Not validated";
+            return $messages;
         }
     }
 
