@@ -11,18 +11,18 @@ spl_autoload_register('LoadClass');
 function LoadClass ($class) {
     $data = basename($class);
     //add basename to remove other namespace parameters
-    $path = '../Controllers/' . basename($data) . '.php';
+    $path = '../' . ($class) . '.php';
 
     //var_dump(file_exists($path)); exit;
 
     if (!file_exists($path)){
-        $model = '../Models/' . basename($data) . '.php';
+        $model = '../' . ($class) . '.php';
 
         //var_dump(file_exists($model)); exit;
         
         if (!file_exists($model)){
             //Echo ("Class does not exist on this path {$model}");
-            $setting = '../Settings/' . basename($data) . '.php';
+            $setting = '../' . ($class) . '.php';
             if (!file_exists($setting)){
                 echo basename($data) . "</br>";
                 Echo ("Class does not exist on this path " .($setting));
