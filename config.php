@@ -17,7 +17,7 @@ function LoadClass ($class) {
 
     if (!file_exists($path)){
             echo basename($data) . "</br>";
-            Echo ("Class does not exist on this path " .($class));
+            Echo ("Class does not exist on this path " .($path));
             
         }else{
             require_once($path);
