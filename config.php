@@ -16,26 +16,15 @@ function LoadClass ($class) {
     //var_dump(file_exists($path)); exit;
 
     if (!file_exists($path)){
-        $model = '..\\' . ($class) . '.php';
-
-        //var_dump(file_exists($model)); exit;
-        
-        if (!file_exists($model)){
-            //Echo ("Class does not exist on this path {$model}");
-            $setting = '..\\' . ($class) . '.php';
-            if (!file_exists($setting)){
-                echo basename($data) . "</br>";
-                Echo ("Class does not exist on this path " .($setting));
-            }else{
-                require_once($setting);
-                return;
-            }
+            echo basename($data) . "</br>";
+            Echo ("Class does not exist on this path " .($class));
+            
         }else{
-            require_once($model);
+            require_once($path);
             return;
         }
         
-    }
-    require_once($path);
+    
+    
 }
 
