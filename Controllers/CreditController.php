@@ -18,7 +18,9 @@ class CreditController {
         $user = new User;
         $detail = $user->get(["username", "=", $username]);
         //print_r ($username); exit;
-
+        if ( $amount < 1 ) {
+            echo "<script> alert('cannot process values lesser than 1'); window.location.replace('credit'); </script>";
+        }
         if ( count($detail) > 0 ) {
             //user is a registered user 
             //continue processing

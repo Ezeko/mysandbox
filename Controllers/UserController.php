@@ -60,7 +60,13 @@ class UserController {
                             }
 
                         }
-                        Redirect::To('dashboard');
+                        
+                        if (($userDetail[0]['user_type']) > 1 ) {
+                            Redirect::To('admin');
+                        }else{
+                            Redirect::To('dashboard');
+                        }
+                        
                     }
                     else{
                         $messages = "Password incorrect";

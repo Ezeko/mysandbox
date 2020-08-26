@@ -1,7 +1,7 @@
 <?php
 namespace Controllers;
 
-use Controllers\Validation;
+use Settings\Validation;
 use Models\User;
 use Models\WalletHistory;
 class DebitController {
@@ -20,6 +20,9 @@ class DebitController {
         //print_r ($username); exit;
 
         if ( count($detail) > 0 ) {
+            if ( $amount < 1 ) {
+                echo "<script> alert('cannot process values lesser than 1'); window.location.replace('debit'); </script>";
+            }
             //user is a registered user 
             //continue processing
             $oldAmount = $detail[0]['amount'];
