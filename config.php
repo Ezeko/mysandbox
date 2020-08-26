@@ -23,7 +23,7 @@ function LoadClass ($class) {
             //Echo ("Class does not exist on this path {$model}");
             $setting = '../Settings/' . basename($class) . '.php';
             if (!file_exists($setting)){
-                Echo ("Class does not exist on this path {$setting}");
+                Echo ("Class does not exist on this path " .basename($setting));
             }else{
                 require_once($setting);
                 return;
