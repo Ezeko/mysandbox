@@ -11,7 +11,12 @@ spl_autoload_register('LoadClass');
 function LoadClass ($class) {
     $data = basename($class);
     //add basename to remove other namespace parameters
-    $path = __DIR__. '\\' . ($class) . '.php';
+    if ($_SERVER['SERVER_NAME'] !== 'localhost') {
+       $path = $_SERVER['SERVER_NAME'] . '\\' . $class . '.php';
+    } else {
+        $path = __DIR__. '\\' . ($class) . '.php';
+    }
+
 
     //var_dump(file_exists($path)); exit;
 

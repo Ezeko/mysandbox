@@ -9,6 +9,7 @@ use Settings\Cookie;
 use Settings\Token;
 
 require ('../config.php');
+echo $_SERVER['SERVER_NAME'];
 $cookie = new Cookie;
 var_dump($cookie->delete('name3'));
 echo Token::check("6bc59ab3a0d47020ff9de3aa3e925bf4"); exit;
