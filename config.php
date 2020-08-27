@@ -11,7 +11,7 @@ spl_autoload_register('LoadClass');
 function LoadClass ($class) {
     $data = basename($class);
     //add basename to remove other namespace parameters
-    $path = '..\\' . ($class) . '.php';
+    $path = __DIR__. '\\' . ($class) . '.php';
 
     //var_dump(file_exists($path)); exit;
 
